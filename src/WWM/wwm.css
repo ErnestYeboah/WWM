@@ -1,0 +1,168 @@
+.main__hall {
+  --primary-clr: rgb(8, 8, 31);
+  --text-clr: white;
+  --gap: 1rem;
+  --opaque-bg: hsla(from var(--primary-clr) h s l / 0.8);
+
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  background-color: var(--primary-clr);
+  color: var(--text-clr);
+}
+
+.trivia__sec {
+  background-image: url("/images/MOST BEAUTIFUL PLACES IN GERMANY.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: hsla(from var(--primary-clr) h s l / 0.5);
+  background-blend-mode: overlay;
+  display: grid;
+  align-content: end;
+  justify-content: center;
+  padding-block: 2rem;
+  font-size: 1.1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timer {
+  background-color: var(--primary-clr);
+  border-radius: 50%;
+  outline: 2px solid var(--text-clr);
+  width: 80px;
+  aspect-ratio: 1;
+  position: fixed;
+  top: 10rem;
+  left: 5rem;
+  text-align: center;
+  align-content: center;
+}
+
+.question {
+  background-color: var(--opaque-bg);
+  outline: 2px solid var(--text-clr);
+  text-align: center;
+  width: fit-content;
+  padding: 1.2em 0.7em;
+  border-radius: 10px;
+  font-weight: 300;
+}
+
+.answers__sec {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+
+  & button {
+    color: inherit;
+    background-color: var(--opaque-bg);
+    outline: 2px solid var(--text-clr);
+    transition: 200ms linear;
+
+    &:not(:disabled):hover {
+      background-color: hsla(from var(--primary-clr) h s l / 0.3);
+    }
+
+    &.checking {
+      animation: checking linear 3000ms forwards;
+    }
+
+    &.correct {
+      background-color: limegreen;
+    }
+    &.incorrect {
+      background-color: salmon;
+    }
+  }
+}
+
+.money__screen {
+  padding: var(--gap);
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  & h2 {
+    font-weight: 300;
+    margin-bottom: 0.7rem;
+    display: flex;
+    gap: var(--gap);
+
+    &.earned {
+      background-color: hsl(180, 67%, 16%);
+    }
+  }
+}
+
+@keyframes checking {
+  0%,
+  22%,
+  42%,
+  62% {
+    background-color: var(--opaque-bg);
+  }
+
+  20%,
+  40%,
+  60% {
+    background-color: midnightblue;
+  }
+}
+
+.next__btn {
+  width: fit-content;
+  background-color: var(--text-clr);
+  display: block;
+  margin: 2rem auto;
+  transition: opacity 500ms;
+  opacity: 0;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &:hover {
+    background-color: var(--opaque-bg);
+    outline: 2px solid var(--text-clr);
+    color: var(--text-clr);
+  }
+}
+
+.quiz__modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-clr);
+  color: white;
+  transition: 500ms;
+  translate: 100% 0;
+  align-content: center;
+  padding: 1rem;
+  text-align: center;
+
+  > * {
+    margin-bottom: 0.5rem;
+  }
+
+  & p {
+    font-size: 2rem;
+  }
+
+  & button {
+    background-color: limegreen;
+    font-size: 1.2rem;
+
+    &:hover {
+      background-color: transparent;
+      outline: 2px solid white;
+      color: white;
+    }
+  }
+
+  &.active {
+    translate: 0 0;
+  }
+}
