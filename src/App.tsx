@@ -1,12 +1,15 @@
-import TriviaGlobalState from "./context/TriviaContext";
-import MainHall from "./WWM/MainHall";
+// import TriviaGlobalState from "./context/TriviaContext";
+// import MainHall from "./WWM/MainHall";
+
+import GuessTheWord from "./GuessTheWord/GuessTheWord";
 
 function App() {
   return (
     <>
-      <TriviaGlobalState>
+      {/* <TriviaGlobalState>
         <MainHall />
-      </TriviaGlobalState>
+      </TriviaGlobalState> */}
+      <GuessTheWord />
     </>
   );
 }
