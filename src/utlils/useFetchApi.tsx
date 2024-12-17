@@ -2,9 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function FetchApi() {
-  const [errorMsg, setErrorMsg] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [fetchedData, setFetchedData] = useState();
+  const [setErrorMsg] = useState("");
 
   async function fetchData() {
     try {
